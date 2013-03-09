@@ -2,8 +2,9 @@ set :application, "rubyshop"
 set :domain,      "54.252.88.222"
 set :repository,  "git://github.com/sirleech/rubyshop.git"
 set :use_sudo,    false
-set :deploy_to,   "/home/chris/#{application}"
+set :deploy_to,   "/home/ubuntu/#{application}"
 set :scm,         "git"
+set :user,        "ubuntu"
 
 role :app, domain
 role :web, domain
