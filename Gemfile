@@ -36,6 +36,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
  gem 'capistrano'
  gem 'rake'
+ gem 'rvm-capistrano'
 
 # To use debugger
 # gem 'debugger'

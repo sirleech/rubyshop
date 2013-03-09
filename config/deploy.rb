@@ -1,3 +1,5 @@
+require 'rvm/capistrano'
+
 set :application, "rubyshop"
 set :domain,      "54.252.88.222"
 set :repository,  "git://github.com/sirleech/rubyshop.git"
