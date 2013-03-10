@@ -24,7 +24,8 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
-    run "cp #{deploy_to}/database.yml #{current_release}/config/"
+    # copy the real database config file
+    run "cp ~/database.yml.rubyshop #{current_release}/config/database.yml"
   end
 end
 
