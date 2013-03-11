@@ -21,12 +21,17 @@ namespace :deploy do
     # Do nothing.
   end
 
+  task :copy_db_yml, :roles => :app do
+    # copy the real database config file
+    run "cp ~/database.yml.rubyshop #{current_release}/config/database.yml"
+  end 
+
   desc "Restart Application"
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
-    # copy the real database config file
-    run "cp ~/database.yml.rubyshop #{current_release}/config/database.yml"
   end
+
+  after "deploy:update_code", "deploy:copy_db_yml" 
 end
 
 
