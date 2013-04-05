@@ -4,9 +4,9 @@ set :application, "rubyshop"
 set :domain,      "54.252.88.222"
 set :repository,  "git://github.com/sirleech/rubyshop.git"
 set :use_sudo,    false
-set :deploy_to,   "/home/ubuntu/#{application}"
-set :scm,         "git"
 set :user,        "ubuntu"
+set :deploy_to,   "/home/#{user}/#{application}"
+set :scm,         "git"
 
 role :app, domain
 role :web, domain
@@ -23,7 +23,7 @@ namespace :deploy do
 
   task :copy_db_yml, :roles => :app do
     # copy the real database config file
-    run "cp ~/database.yml.rubyshop #{current_release}/config/database.yml"
+    run "cp ~/#{application}/database.yml.rubyshop #{current_release}/config/database.yml"
   end 
 
   desc "Restart Application"
